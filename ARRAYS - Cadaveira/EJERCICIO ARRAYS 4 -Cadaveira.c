@@ -6,6 +6,7 @@
 
 int ContarMayor(int vector[], int tamanio);
 int ContarMenor(int vector[], int tamanio);
+void PosicionesMayor(int vector[], int tamanio);
 
 int main() {
     int vector[TVECTOR];
@@ -23,8 +24,9 @@ int main() {
     }
 
     int repeticionesM = ContarMayor(vector, TVECTOR);
-
     printf("\nEl número mayor se repite %d veces.\n", repeticionesM);
+
+    PosicionesMayor(vector, TVECTOR);   // ← FUNCION DE LA CONSIGNA
 
     int repeticionesm = ContarMenor(vector,TVECTOR);
     printf("\nEl número menor se repite %d veces.\n", repeticionesm);
@@ -74,4 +76,23 @@ int ContarMenor(int vector[], int tamanio)
     
     printf("\nEl menor valor del vector es: %d\n", menor);
     return contador;
+}
+
+void PosicionesMayor(int vector[], int tamanio)
+{
+    int mayor = vector[0];
+    int i;
+
+    for(i = 1; i < tamanio; i++) {
+        if(vector[i] > mayor) {
+            mayor = vector[i];
+        }
+    }
+
+    printf("\nEl mayor aparece en las posiciones:\n");
+    for(i = 0; i < tamanio; i++) {
+        if(vector[i] == mayor) {
+            printf("Posición %d\n", i);
+        }
+    }
 }
